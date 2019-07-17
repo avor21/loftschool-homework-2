@@ -1,8 +1,24 @@
 import React, {Component} from 'react';
+import './App.css';
 
 class Comment extends Component {
+
+  handleDelete = () => {
+    const {id, onDelete} = this.props;
+    onDelete(id);
+  };
+
   render() {
-    return <div />;
+    const {text} = this.props;
+
+    return (
+      <div>
+        <p>
+          {text}
+          <span className="delete" onClick={this.handleDelete}>X</span>
+        </p>
+      </div>
+    );
   }
 }
 
